@@ -1,0 +1,110 @@
+#!/bin/bash
+
+#Close level_up message
+KillLvl () {
+	xdotool mousemove --sync 1030 640 click 1
+	sleep 1
+}
+
+#close out of sync
+KillOos () {
+	xdotool mousemove --sync 1040 460 click 1
+	sleep 1
+}
+
+MarkEnd () {
+	xdotool mousemove --sync 20 20
+}
+
+
+Sim_x2 () {
+	xdotool mousemove --sync 695 375 click 1 # X2
+	sleep 1
+	Sim
+}
+
+Sim_x15 () {
+	xdotool mousemove --sync 865 375 click 1 # X15
+	sleep 1
+	Sim
+}
+
+Sim_x30 () {
+	xdotool mousemove --sync 1035 375 click 1 # X30
+	sleep 1
+	Sim
+}
+
+Def_x2 () {
+	xdotool mousemove --sync 1035 535 click 1 # X2
+	sleep 1
+}
+
+Replay () {
+	xdotool mousemove --sync 569 745 click 1 # replay
+	sleep 6
+}
+
+Sim () {
+	xdotool mousemove --sync 1050 842 click 1 # fight
+	sleep 8
+	KillOos
+	KillLvl
+	Replay
+}
+
+if [ $# -ge 1 ] ; then
+	MAX=$1
+else
+	MAX=1000
+fi
+
+S1=S_1
+S2=S_2
+S15=S_15
+S30=S_30
+L2=L_2
+L15=L_15
+L30=L_30
+
+if [ $# -ge 2 ] ; then
+	TYPE=$2
+else
+	TYPE=$S15
+fi
+
+#seq 1 $MAX > /dev/null 2>&1 || MAX=15
+
+#sleep 5
+echo -n "  "
+date
+for j in $( seq 1 $MAX ) ; do
+	case $TYPE in
+	$S1)
+		Sim ;; # 1, 0:16+
+	$S2)
+		Sim_x2 ;; # 2, 0:17+
+	$S15)
+		Sim_x15	;; # 15, 0:17+
+	$S30)
+		Sim_x30	;; # 30, 0:17+
+	$L2)
+		for i in 1 2 3 4 5 6 ; do Sim_x2 ; done
+		;; # 12, 1:43
+	$L15)
+		Sim_x15
+		for i in 1 2 3 4 5 ; do Sim ; done
+		;; # 20, 1:38
+	$L30)
+		Sim_x30
+		for i in 1 2 3 4 5 ; do Sim ; done
+		;; # 35, 1:38
+	*)
+		echo "ę?" $TYPE
+		exit
+	esac
+	echo -n $j" T"$TYPE" "
+	date
+done
+echo
+MarkEnd

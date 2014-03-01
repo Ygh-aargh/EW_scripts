@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 UpgradePart () {
 	xdotool mousemove --sync 1190 307 click 1 # Kill Daily Update

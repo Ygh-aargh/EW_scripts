@@ -1,0 +1,22 @@
+#!/bin/bash
+
+XY=$( xdotool getmouselocation 2>&1 | sed 's/:/ /g' | awk '/window/ {print $2, $4}' )
+
+if [ $# != 2 ] ; then
+	echo "Usage: $0 number_of_items number_of_scrolldowns"
+	exit
+else
+	MAX=$1 # number_of_items
+	SD=$2  # number_of_scrolldowns
+fi
+
+sleep 3
+xdotool click --repeat $SD 4 # scroll up/reset
+sleep 1
+for i in $( seq 1 $MAX ) ; do
+	xdotool click --repeat $SD 5 # scroll down
+	xdotool mousemove --sync $XY click 1 # Use
+	sleep 2
+	xdotool mousemove --sync 1010 640 click 1 # Kill Level
+	sleep 1
+done

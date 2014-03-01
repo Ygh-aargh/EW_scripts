@@ -6,4 +6,5 @@ It is highly unlikely that these scripts will work for anyone just out-of-the-bo
 * Window setting (sizes of decorations and fonts on title bar),
 * Screen resolution (in my case it's 1920x1080).
 
-
+Included tools
+* Unpack: Open the shop, point at "Use" button of a troop bundle and call `Unpack number_of_items_to_unpack number_of_scrolldowns`

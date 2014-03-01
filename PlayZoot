@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -ge 1 ] ; then
+	MAX=$1
+else
+	MAX=100
+fi
+
+sleep 3
+echo "Start: "`date`
+
+for c in $( seq 1 $MAX ) ; do
+	xdotool mousemove --sync 970 777 click 1 # Click "Play"
+	sleep 2
+	xdotool mousemove --sync 895 652 click 1 # Pick (1,4)
+	sleep 4
+	xdotool mousemove --sync 966 631 click 1 # Click "Claim"
+	sleep 1
+	xdotool mousemove --sync 939 628 click 1 # Click "Use"
+	sleep 2
+	echo "Play Zoot: "$c" "`date`
+done # 9s/Zoot

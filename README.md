@@ -7,4 +7,5 @@ It is highly unlikely that these scripts will work for anyone just out-of-the-bo
 * Screen resolution (in my case it's 1920x1080).
 
 Included tools
-* Unpack: Open the shop, point at "Use" button of a troop bundle and call `Unpack number_of_items_to_unpack number_of_scrolldowns`
+* Unpack: Open the shop, point at "Use" button of a troop bundle and call `Unpack number_of_items_to_unpack number_of_scrolldowns`.
+* PlayZoot: Open Zoot Ticket and call `PlayZoot [number_of_tickets_to_use]`. Default for `number_of_tickets_to_use` is 100.

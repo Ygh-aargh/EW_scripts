@@ -18,3 +18,5 @@ Included tools:
  * `L_2` for sequence of simulations with Defense Sim XP x2,
  * `L_15` for sequence of simulations with one Defense Sim XP x15,
  * `L_30` for sequence of simulations with one Defense Sim XP x30.
+* [Autoplayer](../master/Autoplayer): This is the main script used to farm XP from defense simulations from A-1. It performs many tasks: Calls non-trivial sequence of [SimpleSim](../master/SimpleSim), tries to upgrade certain parts,
+ciollests resources, tries to upgrade map bases. Call `Autoplayer [number_of_cycles]`. Default `number_of_cycles` is 100.

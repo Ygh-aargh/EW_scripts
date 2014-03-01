@@ -1,0 +1,190 @@
+#!/bin/bash 
+
+UpgradePart () {
+	xdotool mousemove --sync 1190 307 click 1 # Kill Daily Update
+	sleep 1
+	xdotool mousemove --sync 120 580 click 1 # Select ELab
+	xdotool mousemove --sync 120 580 click 1 # View Equipment
+	sleep 1
+	xdotool mousemove --sync 785 285 click 1 # Parts
+	sleep 1
+	xdotool mousemove --sync 650 400 click 1 # Show filter list
+	sleep 1
+	xdotool mousemove --sync 560 420 click 1 # No filters
+	#xdotool mousemove --sync 560 440 click 1 # Concussion Effect
+	#xdotool mousemove --sync 560 467 click 1 # Bomba Defense
+	#xdotool mousemove --sync 575 488 click 1 # Decimator Defense
+	#xdotool mousemove --sync 582 518 click 1 # Incineraptor def
+	#xdotool mousemove --sync 602 543 click 1 # Battlecruiser def
+	#xdotool mousemove --sync 560 570 click 1 # General's def
+	#xdotool mousemove --sync 560 620 click 1 # Damage
+	#xdotool mousemove --sync 583 645 click 1 # Range
+	#xdotool mousemove --sync 560 668 click 1 # Rate of Fire
+	#xdotool mousemove --sync 560 718 click 1 # Splash Radius
+	sleep 1
+	CR=23
+	case $CR in
+	"11") # col:1 row:1
+		xdotool mousemove --sync 570 490 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 610 590 click 1;; # Menu:Upgrade
+	"21") # col:2 row:1
+		xdotool mousemove --sync 830 490 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 870 590 click 1;; # Menu:Upgrade
+	"12") # col:1 row:2
+		xdotool mousemove --sync 570 640 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 610 740 click 1;; # Menu:Upgrade
+	"22") # col:2 row:2
+		xdotool mousemove --sync 830 640 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 870 740 click 1;; # Menu:Upgrade
+	"13") # col:1 row:3
+		xdotool mousemove --sync 570 780 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 610 780 click 1;; # Menu:Upgrade
+	"23") # col:2 row:3
+		xdotool mousemove --sync 830 780 click 1 # Select part
+		sleep 1
+		xdotool mousemove --sync 870 780 click 1;; # Menu:Upgrade
+	esac
+	sleep 1
+	xdotool mousemove --sync 1105 760 click 1 # Button:Upgrade
+	sleep 1
+	xdotool mousemove --sync 1105 760 click 1 # Button:Repair/Upgrade
+	sleep 1
+	xdotool mousemove --sync 1105 760 click 1 # Button:Repair
+	sleep 1
+	xdotool mousemove --sync 1200 250 click 1 # Close ELab
+	# craft from 10 basic in HQ (work around bug)
+	xdotool mousemove --sync 182 239 click 1 # empty
+	xdotool mousemove --sync 64 243 # base list
+	sleep 1
+	xdotool click 1 # this is weird
+	sleep 1
+	xdotool mousemove --sync 182 239 click 1 # HQ
+	sleep 4
+	xdotool mousemove --sync 40 640 click 1 # Select ELab
+	xdotool mousemove --sync 40 640 click 1 # View Equipment
+	sleep 1
+	xdotool mousemove --sync 930 285 click 1 # Craft
+	sleep 1
+	xdotool mousemove --sync 600 530 click 1 # Tier-1 Basic Craft
+	sleep 1
+	for j in 0 1 ; do
+		for i in 0 1 2 3 4 ; do
+			xdotool mousemove --sync $(( 640 + $i * 110 )) $(( 630 + $j * 80 )) click 1 # Pick
+		done
+	done
+	sleep 1
+	xdotool mousemove --sync 570 670 click 1 # Go to Left just in case
+	xdotool mousemove --sync 1090 790 click 1 # Button: Craft
+	sleep 1
+	xdotool mousemove --sync 1200 250 click 1 # Close ELab
+	xdotool mousemove --sync 182 239 click 1 # empty
+	xdotool mousemove --sync 64 243 click 1 # base list
+	sleep 1
+	xdotool click 1 # this is weird
+	sleep 1
+	xdotool mousemove --sync 182 282 click 1 # A-1
+	sleep 4
+} # 0:27
+
+Res_and_MapUpgrade () {
+	# Collect Res
+	xdotool mousemove --sync 1029 844 click 1 # Gas Refinery
+	sleep 1
+	xdotool mousemove --sync 1029 844 click 1 # Collect All
+	sleep 1
+	# Convert EU to CG
+	xdotool mousemove --sync 699 298 click 1 # Resource converter
+	sleep 1
+	xdotool mousemove --sync 699 298 click 1 # Convert Resources
+	sleep 1
+	xdotool mousemove --sync 906 432 click 1 # select from E
+	xdotool mousemove --sync 739 518 click 1 # Select to C
+	xdotool mousemove --sync 970 585 click 1 # convert most
+	xdotool mousemove --sync 966 724 click 1 # Convert
+	sleep 1
+	xdotool mousemove --sync 986 432 click 1 # select from U
+	xdotool mousemove --sync 820 518 click 1 # Select to G
+	xdotool mousemove --sync 999 585 click 1 # convert all
+	xdotool mousemove --sync 966 724 click 1 # Convert
+	sleep 1
+	xdotool mousemove --sync 1055 284 click 1 # Close
+	sleep 1
+	xdotool mousemove --sync 1555 892 click 1 # Open Map
+	sleep 2
+	xdotool mousemove --sync 1510 289 click 1 # Center on Home
+	sleep 1
+	xdotool mousemove --sync 875 499 click 1 # Go 1 left, 1 down
+	sleep 1
+	xdotool mousemove --sync 919 669 click 1 # Move Here
+	sleep 1
+	xdotool mousemove --sync 1100 653 click 1 # Move
+	sleep 1
+	xdotool mousemove --sync 919 549 click 1 # Just in case: go 2 left, 2 down
+	sleep 1
+	xdotool mousemove --sync 993 724 click 1 # Move Here
+	sleep 1
+	xdotool mousemove --sync 1100 653 click 1 # Move
+	sleep 1
+	xdotool mousemove --sync $( awk 'BEGIN {srand(); print 500 + int(700*rand()), 270 + int(450*rand())}' ) click 1 # If we're on a big obstacle, map edge or chain of 50k bases: pick a random position
+	sleep 1
+	xdotool mousemove_relative --sync 40 170 click 1 # Move Here
+	sleep 1
+	xdotool mousemove --sync 1100 653 click 1 # Move
+	sleep 1
+	xdotool mousemove --sync 1165 314 click 1 # Close Move just in case
+	sleep 1
+	xdotool mousemove --sync 1212 214 click 1 # Close Map
+	sleep 1
+} # 0:15
+
+SelectSim () {
+	#./Bombas2HQorC2 C ; sleep 3
+	xdotool mousemove --sync 340 210 click 1 # Open Simulator
+	sleep 1
+	xdotool mousemove --sync 340 210 click 1 # Menu:Simulations
+	sleep 1
+	xdotool mousemove --sync 640 350 click 1 # Defense Training
+	sleep 1
+	xdotool mousemove --sync 612 790 click 1 # Raining Fire
+	sleep 1
+	xdotool mousemove --sync 975 790 click --repeat 3 1 # 4th page
+	ROW=1
+	COL=4 # Lev 400000
+	xdotool mousemove --sync $(( 700 + $COL * 100 )) $(( 250 + $ROW * 150 )) click 1
+}
+
+CloseSim () {
+	xdotool mousemove --sync 1174 260 click 1 # Close "No time to wait"
+	sleep 1
+	xdotool mousemove --sync 1190 190 click 1 # Close sim
+}
+
+Sim2Map2Sim () {
+	CloseSim
+	Res_and_MapUpgrade
+	SelectSim
+}
+
+if [ $# -ge 1 ] ; then
+	MAX=$1
+else
+	MAX=100
+fi
+
+sleep 3
+xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position
+echo "Start cycle: "`date`
+
+for c in $( seq 1 $MAX ) ; do
+
+	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim
+	# time: 0:00
+	# limit lev: 0 sim = 0
+
+	echo "Cycle: "$c" "`date`
+done

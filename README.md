@@ -20,3 +20,8 @@ Included tools:
  * `L_30` for sequence of simulations with one Defense Sim XP x30.
 * [Autoplayer](./Autoplayer): This is the main script used to farm XP from defense simulations from A-1. It performs many tasks: Calls non-trivial sequence of [SimpleSim](./SimpleSim), tries to upgrade certain parts, collects resources, tries to upgrade map bases. Call `Autoplayer [number_of_cycles]`. Default `number_of_cycles` is 100.
 * [Mouse2Cmd](./Mouse2Cmd): Just prints a command thet moves cursor to the current position and does an LMB click.
+
+To Do:
+* Move layout-dependent coordinates to a kind of config file, so multiple scripts can use them (e.g. Engineering Lab position in [Craft](./Craft) and [Autoplayer](./Autoplayer)).
+* Put some often-changing choices such as position of upgraded part or simulation scenario into a kind of config file.
+* Convert parts of these scripts into true xdotool scripts and shorten sleeps where possible.

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+Craft5 () {
+	xdotool mousemove --sync 120 580 click 1 # Select ELab
+	xdotool mousemove --sync 120 580 click 1 # View Equipment
+	sleep 1
+	# craft from 5 rare
+	xdotool mousemove --sync 930 285 click 1 # Craft
+	sleep 1
+	xdotool mousemove --sync 760 530 click 1 # Tier-1 Rare Craft
+	sleep 1
+	for j in 0 ; do
+		for i in 0 1 2 3 4 ; do
+			xdotool mousemove --sync $(( 640 + $i * 110 )) $(( 630 + $j * 80 )) click 1 # Pick
+		done
+	done
+	xdotool mousemove --sync 550 660 click 1 # Go to Left just in case
+	xdotool mousemove --sync 1090 790 click 1 # Button: Craft
+	sleep 1
+	xdotool mousemove --sync 1200 250 click 1 # Close ELab
+	sleep 1
+}
+
+if [ $# -ge 1 ] ; then
+	MAX=$1
+else
+	MAX=10
+fi
+
+sleep 3
+
+for c in $( seq 1 $MAX ) ; do
+	Craft5
+	echo "Craft: "$c" "`date`
+done
+
+xdotool mousemove --sync 1500 800 click 1

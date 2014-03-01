@@ -1,9 +1,9 @@
-Here are some primitive scripts that I use to play Edgeworld semi-automatically. These scripts are meant to work under Linux. No Windows version will be made in any foreseensble future.
+Here are some primitive scripts that I use to play Edgeworld semi-automatically. These scripts are meant to work under Linux. No Windows version will be made in any foreseeable future.
 
 It is highly unlikely that these scripts will work for anyone just out-of-the-box without any customizations. Everything here depends on:
-* Base layout (position of certain building),
+* Base layout (positions of certain buildings in HQ and A-1),
 * Browser type and configuration (window size, font sizes, presence of toolbars, ...),
-* Window setting (sizes of decorations and fonts on title bar),
+* Window setting (sizes of decorations, fonts on title bar, ...),
 * Screen resolution (in my case it's 1920x1080).
 
 Included tools:
@@ -18,5 +18,4 @@ Included tools:
  * `L_2` for sequence of simulations with Defense Sim XP x2,
  * `L_15` for sequence of simulations with one Defense Sim XP x15,
  * `L_30` for sequence of simulations with one Defense Sim XP x30.
-* [Autoplayer](../master/Autoplayer): This is the main script used to farm XP from defense simulations from A-1. It performs many tasks: Calls non-trivial sequence of [SimpleSim](../master/SimpleSim), tries to upgrade certain parts,
-ciollests resources, tries to upgrade map bases. Call `Autoplayer [number_of_cycles]`. Default `number_of_cycles` is 100.
+* [Autoplayer](../master/Autoplayer): This is the main script used to farm XP from defense simulations from A-1. It performs many tasks: Calls non-trivial sequence of [SimpleSim](../master/SimpleSim), tries to upgrade certain parts, collects resources, tries to upgrade map bases. Call `Autoplayer [number_of_cycles]`. Default `number_of_cycles` is 100.

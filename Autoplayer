@@ -124,23 +124,27 @@ Res_and_MapUpgrade () {
 	sleep 1
 	xdotool mousemove --sync 1100 653 click 1 # Move
 	sleep 1
+	xdotool mousemove --sync 1165 314 click 1 # Close Move
+	sleep 2
 	xdotool mousemove --sync 919 549 click 1 # Just in case: go 2 left, 2 down
 	sleep 1
 	xdotool mousemove --sync 993 724 click 1 # Move Here
 	sleep 1
 	xdotool mousemove --sync 1100 653 click 1 # Move
 	sleep 1
+	xdotool mousemove --sync 1165 314 click 1 # Close Move
+	sleep 2
 	xdotool mousemove --sync $( awk 'BEGIN {srand(); print 500 + int(700*rand()), 270 + int(450*rand())}' ) click 1 # If we're on a big obstacle, map edge or chain of 50k bases: pick a random position
 	sleep 1
 	xdotool mousemove_relative --sync 40 170 click 1 # Move Here
 	sleep 1
 	xdotool mousemove --sync 1100 653 click 1 # Move
 	sleep 1
-	xdotool mousemove --sync 1165 314 click 1 # Close Move just in case
+	xdotool mousemove --sync 1165 314 click 1 # Close Move
 	sleep 1
 	xdotool mousemove --sync 1212 214 click 1 # Close Map
 	sleep 1
-} # 0:15
+} # 0:25
 
 SelectSim () {
 	#./Bombas2HQorC2 C ; sleep 3

@@ -97,6 +97,7 @@ Res_and_MapUpgrade () {
 	sleep 1
 	xdotool mousemove --sync 1029 844 click 1 # Collect All
 	sleep 1
+	[ $MAP_UPGRADE == 0 ] && return
 	# Convert EU to CG
 	xdotool mousemove --sync 699 298 click 1 # Resource converter
 	sleep 1
@@ -169,16 +170,24 @@ CloseSim () {
 }
 
 Sim2Map2Sim () {
-	CloseSim
-	Res_and_MapUpgrade
-	SelectSim
+	if [ $MAP_UPGRADE != 0 ] ; then
+		CloseSim
+		Res_and_MapUpgrade
+		SelectSim
+	fi
 }
 
 if [ $# -ge 1 ] ; then
-	MAX=$1
+	MAX=$( awk 'BEGIN {print 1*'$1'}' )
+	[ $MAX -le 0 ] && MAX=100
 else
 	MAX=100
 fi
+
+MAP_UPGRADE=0
+for i in $* ; do
+	[ $i == "-mu" ] && MAP_UPGRADE=1
+done
 
 sleep 3
 xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position

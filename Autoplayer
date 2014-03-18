@@ -10,19 +10,20 @@ UpgradePart () {
 	sleep 1
 	xdotool mousemove --sync 650 400 click 1 # Show filter list
 	sleep 1
-	xdotool mousemove --sync 560 420 click 1 # No filters
+	#xdotool mousemove --sync 560 420 click 1 # No filters
 	#xdotool mousemove --sync 560 440 click 1 # Concussion Effect
 	#xdotool mousemove --sync 560 467 click 1 # Bomba Defense
 	#xdotool mousemove --sync 575 488 click 1 # Decimator Defense
 	#xdotool mousemove --sync 582 518 click 1 # Incineraptor def
 	#xdotool mousemove --sync 602 543 click 1 # Battlecruiser def
 	#xdotool mousemove --sync 560 570 click 1 # General's def
+	xdotool mousemove --sync 611 589 click 1 # Health
 	#xdotool mousemove --sync 560 620 click 1 # Damage
 	#xdotool mousemove --sync 583 645 click 1 # Range
 	#xdotool mousemove --sync 560 668 click 1 # Rate of Fire
 	#xdotool mousemove --sync 560 718 click 1 # Splash Radius
 	sleep 1
-	CR=23
+	CR=22
 	case $CR in
 	"11") # col:1 row:1
 		xdotool mousemove --sync 570 490 click 1 # Select part

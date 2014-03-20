@@ -11,7 +11,7 @@ Included tools:
 * [Unpack_NoLevelUp](./Unpack_NoLevelUp): Like `Unpack` but changed for unpacking Core bundles and Nano Cannisters.
 * [CloseUnpack](./CloseUnpack): Just close the shop after unpacking troops. Useful when one wants to run someting else, like `Autoplayer`.
 * [PlayZoot](./PlayZoot): Open Zoot Ticket and call `PlayZoot [number_of_tickets_to_use]`. Default for `number_of_tickets_to_use` is 100.
-* [Craft](./Craft): To craft Tier 1 Rare Part Boxes from Rare Parts call `Craft [number_of_boxes_to_craft]`. Default for `number_of_boxes_to_craft` is 10.
+* [Craft](./Craft): To craft Tier 1 Rare Part Boxes from Rare Parts call `Craft [number_of_boxes_to_craft]`. Default for `number_of_boxes_to_craft` is 10. This is dangerous tool. Keep your best parts either broken or equipped if you don't want to destroy them by crafting.
 * [SimpleSim](./SimpleSim): Perform a simple sequence of simulations. Open desired simulation and call `SimpleSim [number_of_cycles] [type_of_cycle]`. Default `number_of_cycles` is 1000, default `type_of_cycle` is `S_15`. Types of cycles are:
  * `S_1` for one simulation without boosters,
  * `S_2` for one simulation with Defense Sim XP x2,

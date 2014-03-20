@@ -147,6 +147,30 @@ Res_and_MapUpgrade () {
 	sleep 1
 } # 0:25
 
+Send_Res () {
+	xdotool mousemove --sync 1156 455 click 1 # Supply Depot
+	sleep 1
+	xdotool click 1 # Transfer Resources
+	sleep 1
+	xdotool mousemove --sync 756 325 click 1 # Drop down "Base A"
+	sleep 1
+	xdotool mousemove --sync 646 402 click 1 # Select Aurora 1
+	sleep 1
+	xdotool mousemove --sync 1069 695 click 1 # Max to Caldera
+	sleep 1
+	xdotool mousemove --sync 1026 736 click 1 # Transfer
+	sleep 1
+	xdotool mousemove --sync 1102 325 click 1 # Drop down "Base B"
+	sleep 1
+	xdotool mousemove --sync 1017 361 click 1 # Select HQ
+	sleep 1
+	xdotool mousemove --sync 1069 695 click 1 # Max to HQ
+	sleep 1
+	xdotool mousemove --sync 1026 736 click 1 # Transfer
+	sleep 1
+	xdotool mousemove --sync 1088 248 click 1 # Close
+}
+
 SelectSim () {
 	#./Bombas2HQorC2 C ; sleep 3
 	xdotool mousemove --sync 340 210 click 1 # Open Simulator

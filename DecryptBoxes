@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# != 1 ] ; then
+	echo "Usage: $0 number_of_boxes_to_decrypt"
+	exit 1
+fi
+
+sleep 3
+
+for i in $( seq 1 $1 ) ; do
+	xdotool mousemove --sync 980 555 click 1 # Use Key
+	sleep 7
+	xdotool mousemove --sync 829 672 click 1 # Use (Try Again)
+	sleep 2
+done

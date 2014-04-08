@@ -3,61 +3,63 @@
 UpgradePart () {
 	xdotool mousemove --sync 1190 307 click 1 # Kill Daily Update
 	sleep 1
-	xdotool mousemove --sync 120 580 click 1 # Select ELab
-	xdotool mousemove --sync 120 580 click 1 # View Equipment
-	sleep 1
-	xdotool mousemove --sync 785 285 click 1 # Parts
-	sleep 1
-	xdotool mousemove --sync 650 400 click 1 # Show filter list
-	sleep 1
-	#xdotool mousemove --sync 560 420 click 1 # No filters
-	#xdotool mousemove --sync 560 440 click 1 # Concussion Effect
-	#xdotool mousemove --sync 560 467 click 1 # Bomba Defense
-	#xdotool mousemove --sync 575 488 click 1 # Decimator Defense
-	#xdotool mousemove --sync 582 518 click 1 # Incineraptor def
-	#xdotool mousemove --sync 602 543 click 1 # Battlecruiser def
-	#xdotool mousemove --sync 560 570 click 1 # General's def
-	xdotool mousemove --sync 611 589 click 1 # Health
-	#xdotool mousemove --sync 560 620 click 1 # Damage
-	#xdotool mousemove --sync 583 645 click 1 # Range
-	#xdotool mousemove --sync 560 668 click 1 # Rate of Fire
-	#xdotool mousemove --sync 560 718 click 1 # Splash Radius
-	sleep 1
-	CR=22
-	case $CR in
-	"11") # col:1 row:1
-		xdotool mousemove --sync 570 490 click 1 # Select part
+	if [ $UPGRADE_PART != 0 ] ; then
+		xdotool mousemove --sync 120 580 click 1 # Select ELab
+		xdotool mousemove --sync 120 580 click 1 # View Equipment
 		sleep 1
-		xdotool mousemove --sync 610 590 click 1;; # Menu:Upgrade
-	"21") # col:2 row:1
-		xdotool mousemove --sync 830 490 click 1 # Select part
+		xdotool mousemove --sync 785 285 click 1 # Parts
 		sleep 1
-		xdotool mousemove --sync 870 590 click 1;; # Menu:Upgrade
-	"12") # col:1 row:2
-		xdotool mousemove --sync 570 640 click 1 # Select part
+		xdotool mousemove --sync 650 400 click 1 # Show filter list
 		sleep 1
-		xdotool mousemove --sync 610 740 click 1;; # Menu:Upgrade
-	"22") # col:2 row:2
-		xdotool mousemove --sync 830 640 click 1 # Select part
+		#xdotool mousemove --sync 560 420 click 1 # No filters
+		#xdotool mousemove --sync 560 440 click 1 # Concussion Effect
+		#xdotool mousemove --sync 560 467 click 1 # Bomba Defense
+		#xdotool mousemove --sync 575 488 click 1 # Decimator Defense
+		#xdotool mousemove --sync 582 518 click 1 # Incineraptor def
+		#xdotool mousemove --sync 602 543 click 1 # Battlecruiser def
+		#xdotool mousemove --sync 560 570 click 1 # General's def
+		xdotool mousemove --sync 611 589 click 1 # Health
+		#xdotool mousemove --sync 560 620 click 1 # Damage
+		#xdotool mousemove --sync 583 645 click 1 # Range
+		#xdotool mousemove --sync 560 668 click 1 # Rate of Fire
+		#xdotool mousemove --sync 560 718 click 1 # Splash Radius
 		sleep 1
-		xdotool mousemove --sync 870 740 click 1;; # Menu:Upgrade
-	"13") # col:1 row:3
-		xdotool mousemove --sync 570 780 click 1 # Select part
+		CR=22
+		case $CR in
+		"11") # col:1 row:1
+			xdotool mousemove --sync 570 490 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 610 590 click 1;; # Menu:Upgrade
+		"21") # col:2 row:1
+			xdotool mousemove --sync 830 490 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 870 590 click 1;; # Menu:Upgrade
+		"12") # col:1 row:2
+			xdotool mousemove --sync 570 640 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 610 740 click 1;; # Menu:Upgrade
+		"22") # col:2 row:2
+			xdotool mousemove --sync 830 640 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 870 740 click 1;; # Menu:Upgrade
+		"13") # col:1 row:3
+			xdotool mousemove --sync 570 780 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 610 780 click 1;; # Menu:Upgrade
+		"23") # col:2 row:3
+			xdotool mousemove --sync 830 780 click 1 # Select part
+			sleep 1
+			xdotool mousemove --sync 870 780 click 1;; # Menu:Upgrade
+		esac
 		sleep 1
-		xdotool mousemove --sync 610 780 click 1;; # Menu:Upgrade
-	"23") # col:2 row:3
-		xdotool mousemove --sync 830 780 click 1 # Select part
+		xdotool mousemove --sync 1105 760 click 1 # Button:Upgrade
 		sleep 1
-		xdotool mousemove --sync 870 780 click 1;; # Menu:Upgrade
-	esac
-	sleep 1
-	xdotool mousemove --sync 1105 760 click 1 # Button:Upgrade
-	sleep 1
-	xdotool mousemove --sync 1105 760 click 1 # Button:Repair/Upgrade
-	sleep 1
-	xdotool mousemove --sync 1105 760 click 1 # Button:Repair
-	sleep 1
-	xdotool mousemove --sync 1200 250 click 1 # Close ELab
+		xdotool mousemove --sync 1105 760 click 1 # Button:Repair/Upgrade
+		sleep 1
+		xdotool mousemove --sync 1105 760 click 1 # Button:Repair
+		sleep 1
+		xdotool mousemove --sync 1200 250 click 1 # Close ELab
+	fi
 	# craft from 10 basic in HQ (work around bug: A-1 does not properly update list of parts, HQ does)
 	xdotool mousemove --sync 182 239 click 1 # empty
 	xdotool mousemove --sync 64 243 click 1 # base list
@@ -217,6 +219,7 @@ MAP_UPGRADE=0
 for i in $* ; do
 	[ $i == "-mu" ] && MAP_UPGRADE=1
 done
+UPGRADE_PART=0
 
 sleep 3
 xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position

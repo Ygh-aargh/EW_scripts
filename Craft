@@ -1,8 +1,8 @@
 #!/bin/bash
 
 Craft5 () {
-	xdotool mousemove --sync 120 580 click 1 # Select ELab
-	xdotool mousemove --sync 120 580 click 1 # View Equipment
+	xdotool mousemove --sync 890 630 click 1 # Select ELab
+	xdotool mousemove --sync 890 630 click 1 # View Equipment
 	sleep 1
 	# craft from 5 rare
 	xdotool mousemove --sync 930 285 click 1 # Craft

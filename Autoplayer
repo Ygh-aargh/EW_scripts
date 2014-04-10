@@ -4,8 +4,8 @@ UpgradePart () {
 	xdotool mousemove --sync 1190 307 click 1 # Kill Daily Update
 	sleep 1
 	if [ $UPGRADE_PART != 0 ] ; then
-		xdotool mousemove --sync 120 580 click 1 # Select ELab
-		xdotool mousemove --sync 120 580 click 1 # View Equipment
+		xdotool mousemove --sync 890 630 click 1 # Select ELab
+		xdotool mousemove --sync 890 630 click 1 # View Equipment
 		sleep 1
 		xdotool mousemove --sync 785 285 click 1 # Parts
 		sleep 1
@@ -70,8 +70,8 @@ UpgradePart () {
 	sleep 1
 	xdotool mousemove --sync 182 239 click 1 # HQ
 	sleep 5
-	xdotool mousemove --sync 40 640 click 1 # Select ELab
-	xdotool mousemove --sync 40 640 click 1 # View Equipment
+	xdotool mousemove --sync 150 610 click 1 # Select ELab
+	xdotool mousemove --sync 150 610 click 1 # View Equipment
 	sleep 1
 	xdotool mousemove --sync 930 285 click 1 # Craft
 	sleep 1
@@ -155,7 +155,7 @@ Res_and_MapUpgrade () {
 } # 0:25
 
 Send_Res () {
-	xdotool mousemove --sync 1156 455 click 1 # Supply Depot
+	xdotool mousemove --sync 1000 380 click 1 # Supply Depot
 	sleep 1
 	xdotool click 1 # Transfer Resources
 	sleep 1
@@ -180,9 +180,9 @@ Send_Res () {
 
 SelectSim () {
 	#./Bombas2HQorC2 C ; sleep 3
-	xdotool mousemove --sync 340 210 click 1 # Open Simulator
+	xdotool mousemove --sync 540 620 click 1 # Open Simulator
 	sleep 1
-	xdotool mousemove --sync 340 210 click 1 # Menu:Simulations
+	xdotool mousemove --sync 540 620 click 1 # Menu:Simulations
 	sleep 1
 	xdotool mousemove --sync 640 350 click 1 # Defense Training
 	sleep 1

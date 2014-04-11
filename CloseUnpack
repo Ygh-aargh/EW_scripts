@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xdotool mousemove --sync 1200 228 click 1

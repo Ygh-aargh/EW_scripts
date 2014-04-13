@@ -10,6 +10,9 @@ else
 	SD=$2  # number_of_scrolldowns
 fi
 
+CLOSE_COORDS="1010 640"
+[ $( basename $0 ) == "Unpack_NoLevelUp" ] && CLOSE_COORDS="1139 754"
+
 sleep 3
 xdotool click --repeat $SD 4 # scroll up/reset
 sleep 1
@@ -17,6 +20,6 @@ for i in $( seq 1 $MAX ) ; do
 	xdotool click --repeat $SD 5 # scroll down
 	xdotool mousemove --sync $XY click 1 # Use
 	sleep 2
-	xdotool mousemove --sync 1010 640 click 1 # Kill Level
+	xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
 	sleep 1
 done

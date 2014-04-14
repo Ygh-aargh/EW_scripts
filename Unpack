@@ -14,11 +14,14 @@ CLOSE_COORDS="1010 640"
 [ $( basename $0 ) == "Unpack_NoLevelUp" ] && CLOSE_COORDS="1139 754"
 
 sleep 3
-for i in $( seq 1 $MAX ) ; do
-	xdotool click --repeat $SD 4 # scroll up/reset. Fot i > 1 it is only just in case
-	xdotool click --repeat $SD 5 # scroll down
+( time for i in $( seq 1 $MAX ) ; do
+	if [ $SD -gt 0 ] ; then
+		xdotool click --repeat $SD 4 # scroll up/reset. For i > 1 it is only just in case
+		xdotool click --repeat $SD 5 # scroll down
+	fi
 	xdotool mousemove --sync $XY click 1 # Use
 	sleep 2
 	xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
-	sleep 1
-done
+done ) 2>&1  | sed 's/m/ /' | awk '/real/ {t=60*$2+$3; print "time elapsed: "t", "t/'$MAX'" seconds/item"}'
+
+#time: about number_of_items*(2+0.2*(number_of_scrolldowns-1))

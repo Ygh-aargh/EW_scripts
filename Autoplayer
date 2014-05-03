@@ -69,9 +69,9 @@ UpgradePart () {
 	xdotool mousemove --sync 64 243 click 1 # this is weird, but try base list second click just in case
 	sleep 1
 	xdotool mousemove --sync 182 239 click 1 # HQ
-	sleep 5
-	xdotool mousemove --sync 150 610 click 1 # Select ELab
-	xdotool mousemove --sync 150 610 click 1 # View Equipment
+	sleep 6
+	xdotool mousemove --sync 446 849 click 1 # Select ELab
+	xdotool click 1 # View Equipment
 	sleep 1
 	xdotool mousemove --sync 930 285 click 1 # Craft
 	sleep 1
@@ -95,7 +95,7 @@ UpgradePart () {
 	xdotool mousemove --sync 64 243 click 1 # this is weird, now it requires 2 clicks to show list of bases (most of times it seems)
 	sleep 1
 	xdotool mousemove --sync 182 282 click 1 # A-1
-	sleep 5
+	sleep 6
 } # 0:29
 
 Res_and_MapUpgrade () {

@@ -333,9 +333,48 @@ for c in $( seq 1 $MAX ) ; do
 
 	FlashCheck
 
-	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim
-	# time: 0:00
-	# limit lev: 0 sim = 0
+	Send_Res
+	Res_and_MapUpgrade
+	UpgradePart
+
+	SelectSim
+	./SimpleSim 1 L_30
+	Sim2Map2Sim
+	./SimpleSim 1 L_15
+	Sim2Map2Sim
+	./SimpleSim 1 L_15
+	CloseSim
+
+	Res_and_MapUpgrade
+	UpgradePart
+
+	SelectSim
+	./SimpleSim 1 L_30
+	Sim2Map2Sim
+	./SimpleSim 1 L_15
+	Sim2Map2Sim
+	./SimpleSim 1 S_15
+	./SimpleSim 3 S_1
+	CloseSim
+
+	Res_and_MapUpgrade
+	UpgradePart
+
+	SelectSim
+	./SimpleSim 1 S_30
+	Sim2Map2Sim
+	./SimpleSim 2 S_2
+	./SimpleSim 1 S_15
+	Sim2Map2Sim
+	./SimpleSim 1 L_2
+	Sim2Map2Sim
+	./SimpleSim 1 L_2
+	# 3*30 + 5*15 + 14*2 + 28*1 = 221 sim_xp/50 sim = 4.42 sim_xp/sim
+	# Slightly short on x30, short on x2
+	# time: 16:25, 20:21 with -mu
+	# limit lev: 12 sim = 408000
+
+	CloseSim
 
 	echo "Cycle: "$c" "`date`
 done

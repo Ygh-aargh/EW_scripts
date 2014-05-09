@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# != 2 ] ; then
+	echo "Usage: $0 how_many_clicks delay_in_seconds"
+	exit
+fi
+
+sleep 3
+xdotool click --repeat $1 --delay $(( $2 * 1000 )) 1

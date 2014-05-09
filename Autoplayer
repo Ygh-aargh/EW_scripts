@@ -59,6 +59,8 @@ UpgradePart () {
 		xdotool mousemove --sync 1105 760 click 1 # Button:Repair
 		sleep 1
 		xdotool mousemove --sync 1200 250 click 1 # Close ELab
+	else
+		[ $CRAFT5 != 0 ] && ./Craft 1
 	fi
 	# craft from 10 basic in HQ (work around bug: A-1 does not properly update list of parts, HQ does)
 	xdotool mousemove --sync 182 239 click 1 # empty
@@ -215,16 +217,19 @@ else
 	MAX=100
 fi
 
+CRAFT5=1
 MAP_UPGRADE=0
 for i in $* ; do
 	[ $i == "-mu" ] && MAP_UPGRADE=1
+	[ $i == "-nc" ] && CRAFT5=0
 done
 UPGRADE_PART=0
+
+echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
 
 sleep 3
 xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position
 echo "Start cycle: "`date`
-
 for c in $( seq 1 $MAX ) ; do
 
 	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim

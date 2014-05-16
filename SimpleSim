@@ -47,7 +47,8 @@ Replay () {
 
 Sim () {
 	xdotool mousemove --sync 1050 842 click 1 # fight
-	sleep 13
+#	sleep 13 # HQ
+	sleep 9 # A1
 	KillOos
 	KillLvl
 	Replay

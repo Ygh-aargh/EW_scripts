@@ -339,20 +339,20 @@ for c in $( seq 1 $MAX ) ; do
 	UpgradePart
 
 	SelectSim
-	Sim_15_n2 2
+	Sim_15_n2 3
 	Sim2Map2Sim
-	Sim_15_n2 2
+	Sim_15_n2 3
 	Sim2Map2Sim
-	Sim_15_n2 2
+	Sim_15_n2 3
 	CloseSim
 
 	Res_and_MapUpgrade
 	UpgradePart
 
 	SelectSim
-	Sim_15_n2 2
+	Sim_15_n2 3
 	Sim2Map2Sim
-	Sim_15_n2 2
+	Sim_15_n2 3
 	CloseSim
 
 	Res_and_MapUpgrade
@@ -364,13 +364,14 @@ for c in $( seq 1 $MAX ) ; do
 	./SimpleSim 1 L_30
 	Sim2Map2Sim
 	./SimpleSim 1 S_30
-	./SimpleSim 3 S_1
-	./SimpleSim 2 S_2
+	./SimpleSim 2 S_1
+	./SimpleSim 3 S_2
 
-	# 3*30 + 5*15 + 12*2 + 28*1 = 217 sim_xp/48 sim = 4.521 sim_xp/sim
+	# 3*30 + 5*15 + 18*2 + 22*1 = 223 sim_xp/48 sim = 4.646 sim_xp/sim
 	# time: 16:24, ??:?? with -mu
-	# limit lev: 22 sim = 748000
+	# limit lev: 23 sim = 782000
 	# expect some deficit in x15 and x30, add 2 sims (one x1 and one x2) in HQ to break even.
+	# expect huge deficit in x2
 
 	CloseSim
 

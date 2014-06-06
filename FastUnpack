@@ -1,0 +1,33 @@
+#!/bin/bash
+
+XY=$( xdotool getmouselocation 2>&1 | sed 's/:/ /g' | awk '/window/ {print $2, $4}' )
+
+if [ $# != 2 ] ; then
+	echo "Usage: $0 number_of_items number_of_scrolldowns"
+	exit
+else
+	MAX=$1 # number_of_items
+	SD=$2  # number_of_scrolldowns
+fi
+
+CLOSE_COORDS="1010 640"
+[ $( basename $0 ) == "Unpack_NoLevelUp" ] && CLOSE_COORDS="1139 754"
+
+sleep 3
+( time for i in $( seq 1 $MAX ) ; do
+	if [ $SD -gt 0 ] ; then
+		xdotool click --repeat $SD 4 # scroll up/reset. For i > 1 it is only just in case
+		xdotool sleep 0.2
+		xdotool click --repeat $SD 5 # scroll down
+		xdotool sleep 0.2
+	fi
+	xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
+	xdotool sleep 0.1
+	xdotool mousemove --sync $XY click 1 # Use
+	xdotool sleep $( awk 'BEGIN {t=1.5-0.1*'$SD'; if (t<0) t=0; printf("%.1f", t)}' )
+done
+sleep 1
+xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
+) 2>&1  | sed 's/m/ /' | awk '/real/ {t=60*$2+$3; print "time elapsed: "t", "t/'$MAX'" seconds/item"}'
+
+#time: about number_of_items*(1.85+0.1*number_of_scrolldowns)

@@ -62,8 +62,10 @@ UpgradePart () {
 	else
 		[ $CRAFT5 != 0 ] && ./Craft 1
 	fi
+} # 0:29
+
+CraftBasic () {
 	# craft from 10 basic in HQ (work around bug: A-1 does not properly update list of parts, HQ does)
-	SwitchToHQ
 	xdotool mousemove --sync 446 819 click 1 # Select ELab
 	xdotool click 1 # View Equipment
 	sleep 1
@@ -81,8 +83,7 @@ UpgradePart () {
 	xdotool mousemove --sync 1090 790 click 1 # Button: Craft
 	sleep 1
 	xdotool mousemove --sync 1200 250 click 1 # Close ELab
-	SwitchToA1
-} # 0:29
+}
 
 SwitchToHQ () {
 	SwitchBase 239 # HQ
@@ -319,7 +320,7 @@ for i in $* ; do
 done
 UPGRADE_PART=0
 
-TIME_HQ=16
+TIME_HQ=17
 TIME_A1=12
 
 echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
@@ -333,9 +334,34 @@ for c in $( seq 1 $MAX ) ; do
 
 	FlashCheck
 
-	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim
-	# time: 0:00
-	# limit lev: 0 sim = 0
+	SwitchToHQ
+
+	CraftBasic
+
+	[ $(( $c % 11 )) -eq 1 ] && Invasion # 3*8min of Invasion every 1.5 hour
+
+	SelectSimHQ
+#	./SimpleSim 1 S_30 $TIME_HQ
+	./SimpleSim 2 S_15 $TIME_HQ
+	./SimpleSim 4 S_1 $TIME_HQ
+	CloseSim
+
+	SwitchToA1
+
+	Send_Res
+	Res_and_MapUpgrade
+	UpgradePart
+
+	SelectSimA1
+	./SimpleSim 2 S_30 $TIME_A1
+	./SimpleSim 1 S_2 $TIME_A1
+	./SimpleSim 3 S_1 $TIME_A1
+	CloseSim
+
+	# 2*30 + 2*15 + 1*2 + 7*1 = 99 sim_xp/12 sim = 8.25 sim_xp/sim
+	# time: 6:16
+	# limit lev: 99 sim = 3 366 000
+	# Burn x30, burn x15, save x2
 
 	echo "Cycle: "$c" "`date`
 done

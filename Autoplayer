@@ -189,11 +189,20 @@ Send_Res () {
 	xdotool mousemove --sync 1088 248 click 1 # Close
 }
 
+SelectSimA1 () {
+	SelectSim 540 620
+}
+
+SelectSimHQ () {
+	SelectSim 30 660
+}
+
 SelectSim () {
+	[ $# -ne 2 ] && exit
 	#./Bombas2HQorC2 C ; sleep 3
-	xdotool mousemove --sync 540 620 click 1 # Open Simulator
+	xdotool mousemove --sync $1 $2 click 1 # Open Simulator
 	sleep 1
-	xdotool mousemove --sync 540 620 click 1 # Menu:Simulations
+	xdotool click 1 # Menu:Simulations
 	sleep 1
 	xdotool mousemove --sync 640 350 click 1 # Defense Training
 	sleep 1
@@ -247,6 +256,9 @@ for i in $* ; do
 	[ $i == "-nc" ] && CRAFT5=0
 done
 UPGRADE_PART=0
+
+TIME_HQ=14
+TIME_A1=10
 
 echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
 

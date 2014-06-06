@@ -210,6 +210,20 @@ Sim2Map2Sim () {
 	fi
 }
 
+Sim_15_n2 () {
+	if [ $# == 0 ] ; then
+		echo "Sim_15_n2 needs argument"
+		exit
+	fi
+	if [ $1 -lt 0 -o $1 -gt 5 ] ; then
+		echo "Sim_15_n2 needs argument between 0 and 5"
+	else
+		./SimpleSim 1 S_15
+		./SimpleSim $(( 5 - $1 )) S_1
+		./SimpleSim $1 S_2
+	fi
+}
+
 if [ $# -ge 1 ] ; then
 	MAX=$( awk 'BEGIN {print 1*'$1'}' )
 	[ $MAX -le 0 ] && MAX=100

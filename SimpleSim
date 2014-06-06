@@ -47,8 +47,7 @@ Replay () {
 
 Sim () {
 	xdotool mousemove --sync 1050 842 click 1 # fight
-#	sleep 13 # HQ
-	sleep 9 # A1
+	sleep $TIME
 	KillOos
 	KillLvl
 	Replay
@@ -74,11 +73,11 @@ else
 	TYPE=$S15
 fi
 
-#seq 1 $MAX > /dev/null 2>&1 || MAX=15
 
-#sleep 5
-echo -n "  "
-date
+TIME=9 # Fastest A1 sim
+[ $# -ge 3 ] && TIME=$3
+
+echo -n $( printf "%-4s" $TYPE )"  "$TIME"s   "$( date )" -> "
 for j in $( seq 1 $MAX ) ; do
 	case $TYPE in
 	$S1)
@@ -104,8 +103,7 @@ for j in $( seq 1 $MAX ) ; do
 		echo "ę?" $TYPE
 		exit
 	esac
-	echo -n $j" T"$TYPE" "
-	date
+	echo -n "#"
 done
-echo
+echo " -> "$( date )
 MarkEnd

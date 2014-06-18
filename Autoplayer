@@ -230,6 +230,22 @@ Sim2Map2Sim () {
 	fi
 }
 
+FlashCheck () {
+	if [ $( ps aux | grep flash | grep "Edgewo.*ppapi" | wc -l ) -ne 1 ] ; then
+		xdotool mousemove --sync 344 93 click 1 # Refresh
+		sleep 5
+		xdotool mousemove --sync 1515 103 click 1 # Drop down "Your game from"
+		sleep 1
+		xdotool mousemove --sync 1492 148 click 1 # Select Kabam
+		sleep 30
+		xdotool mousemove --sync 1459 163 click 1 # Kill Kabam Rewards
+		sleep 2
+		xdotool mousemove --sync 1180 304 click 1 # Kill daily update
+		sleep 1
+		echo "Flash restarted at $( date )" >> ../flash_restarts
+	fi
+}
+
 Sim_15_n2 () {
 	if [ $# == 0 ] ; then
 		echo "Sim_15_n2 needs argument"
@@ -268,6 +284,8 @@ sleep 3
 xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position
 echo "Start cycle: "`date`
 for c in $( seq 1 $MAX ) ; do
+
+	FlashCheck
 
 	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim
 	# time: 0:00

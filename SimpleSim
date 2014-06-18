@@ -42,7 +42,7 @@ Def_x2 () {
 
 Replay () {
 	xdotool mousemove --sync 569 745 click 1 # replay
-	sleep 6
+	sleep 7
 }
 
 Sim () {

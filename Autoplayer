@@ -98,7 +98,7 @@ SwitchToC2 () {
 
 SwitchBase () {
 	[ $# -lt 1 ] && exit
-	xdotool mousemove --sync 182 239 click 1 # empty
+	xdotool mousemove --sync 1653 200 click 1 # empty
 	xdotool mousemove --sync 64 243 click 1 # base list
 	sleep 1
 	xdotool mousemove --sync 182 $1 click 1 # choose base
@@ -107,6 +107,8 @@ SwitchBase () {
 	sleep 1
 	xdotool mousemove --sync 182 $1 click 1 # choose base again
 	sleep 12
+	xdotool mousemove --sync 1040 460 click 1 # close "Out Of Sync" error message
+	sleep 1
 }
 
 Res_and_MapUpgrade () {
@@ -246,7 +248,7 @@ if [ $# -ge 1 ] ; then
 	MAX=$( awk 'BEGIN {print 1*'$1'}' )
 	[ $MAX -le 0 ] && MAX=100
 else
-	MAX=100
+	MAX=200
 fi
 
 CRAFT5=1
@@ -257,8 +259,8 @@ for i in $* ; do
 done
 UPGRADE_PART=0
 
-TIME_HQ=14
-TIME_A1=10
+TIME_HQ=16
+TIME_A1=12
 
 echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
 

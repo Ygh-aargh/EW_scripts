@@ -109,6 +109,10 @@ SwitchBase () {
 	sleep 12
 	xdotool mousemove --sync 1040 460 click 1 # close "Out Of Sync" error message
 	sleep 1
+	xdotool mousemove --sync 1540 732 click 1 # zoom out (requires the game settings to be opened)
+	sleep 1
+	xdotool mousemove --sync 1511 707 click 1 # zoom in (different coordinates to try to avoid chosing anything in case there's a building under cursor when the game settings are closed)
+	sleep 1
 }
 
 Res_and_MapUpgrade () {
@@ -242,6 +246,8 @@ FlashCheck () {
 		sleep 2
 		xdotool mousemove --sync 1180 304 click 1 # Kill daily update
 		sleep 1
+		xdotool mousemove --sync 1683 717 click 1 # Open game settings to allow zoom in/out for centering
+		sleep 240 # Wait to prevent an error "You are already running a simulation"
 		echo "Flash restarted at $( date )" >> ../flash_restarts
 	fi
 }

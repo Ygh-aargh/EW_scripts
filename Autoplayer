@@ -64,7 +64,7 @@ UpgradePart () {
 	fi
 	# craft from 10 basic in HQ (work around bug: A-1 does not properly update list of parts, HQ does)
 	SwitchToHQ
-	xdotool mousemove --sync 446 849 click 1 # Select ELab
+	xdotool mousemove --sync 446 819 click 1 # Select ELab
 	xdotool click 1 # View Equipment
 	sleep 1
 	xdotool mousemove --sync 930 285 click 1 # Craft
@@ -119,7 +119,7 @@ Res_and_MapUpgrade () {
 	# Collect Res
 	xdotool mousemove --sync 1029 844 click 1 # Gas Refinery
 	sleep 1
-	xdotool mousemove --sync 1029 844 click 1 # Collect All
+	xdotool mousemove --sync 1038 800 click 1 # Collect All
 	sleep 1
 	[ $MAP_UPGRADE == 0 ] && return
 	# Convert EU to CG

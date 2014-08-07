@@ -322,6 +322,8 @@ UPGRADE_PART=0
 TIME_HQ=16
 TIME_A1=12
 
+PIC="_last_.png"
+
 echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
 
 sleep 3
@@ -331,11 +333,17 @@ WID=$( xwininfo | grep Window\ id | awk '{print $4}' & sleep 1 && xdotool click 
 echo "Start cycle: "`date`
 for c in $( seq 1 $MAX ) ; do
 
+	NUM=$( printf %03d $(( $( \ls -1tr "png/"[0-9][0-9][0-9].png | sed 's/png\/0*\(.*\)\.png/\1/' | tail -n 1 ) + 1 )) )
+	#recordmydesktop --windowid $WID -y 108 --width 1705 --height 798 -fps 5 --no-sound --on-the-fly-encoding -o "ogv/"${NUM}".ogv" --overwrite --no-wm-check &
 	FlashCheck
 
 	# 0*30 + 0*15 + 0*2 + 0*1 = 0 sim_xp/0 sim = ? sim_xp/sim
 	# time: 0:00
 	# limit lev: 0 sim = 0
+
+	import -window $WID -crop 1705x798+0+108 $PIC
+	cp $PIC "png/"${NUM}".png"
+	killall -SIGINT recordmydesktop
 
 	echo "Cycle: "$c" "`date`
 done

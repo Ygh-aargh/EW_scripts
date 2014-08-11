@@ -1,0 +1,35 @@
+#!/bin/bash
+
+XY=$( xdotool getmouselocation 2>&1 | sed 's/:/ /g' | awk '/window/ {print $2, $4}' )
+
+if [ $# != 2 ] ; then
+	echo "Usage: $0 number_of_items number_of_scrolldowns"
+	exit
+else
+	MAX=$1 # number_of_items
+	SD=$2  # number_of_scrolldowns
+fi
+
+MAX_BATCH=100 # number of items unpacked at once
+
+if [ $MAX -le $MAX_BATCH ] ; then
+	./FastUnpack $MAX $SD
+else
+	sleep 3
+	( time while [ $MAX -gt 0 ] ; do
+		[ $MAX -gt $MAX_BATCH ] && NI=$MAX_BATCH || NI=$MAX
+		MAX=$(( $MAX - $NI ))
+		./CloseUnpack
+		sleep 1
+		xdotool mousemove --sync 1325 890 click 1 # Open the Store
+		sleep 1
+		xdotool mousemove --sync 712 289 click 1 # My Items
+		sleep 2
+		[ $( basename $0 ) == "LongUnpack_Combat"  ] && xdotool mousemove --sync 570 417 click 1 # Combat  category
+		[ $( basename $0 ) == "LongUnpack_General" ] && xdotool mousemove --sync 549 498 click 1 # General category
+		xdotool mousemove --sync $XY
+		sleep 2 && xdotool click --repeat $SD 5 &
+		./FastUnpack $NI $SD
+	done
+	) 2>&1  | sed 's/\([0-9]\)m/\1 /' | awk '/real/ {t=60*$2+$3; print "time elapsed: "t", "t/'$1'" seconds/item"} /item/ {print}'
+fi

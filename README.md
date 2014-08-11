@@ -10,6 +10,9 @@ Included tools:
 * [Unpack](./Unpack): Open the shop, point at "Use" button of a troop bundle and call `Unpack number_of_items_to_unpack number_of_scrolldowns`.
 * [Unpack_NoLevelUp](./Unpack_NoLevelUp): Like `Unpack` but changed for unpacking Core bundles and Nano Cannisters.
 * [FastUnpack](./FastUnpack): A faster, but less reliable variant of `Unpack`.
+* [LongUnpack_All](./LongUnpack_All): Call the same way as `Unpack` or `FastUnpack` when you're opening hundreds of troop boxes and want to minimize cumulated lag. Usable only when you don't select any category.
+* [LongUnpack_Combat](./LongUnpack_Combat): An alias for LongUnpack_All that assumes the boxes are in the "Combat" category.
+* [LongUnpack_General](./LongUnpack_General): An alias for LongUnpack_All that assumes the boxes are in the "General" category.
 * [CloseUnpack](./CloseUnpack): Just close the shop after unpacking troops. Useful when one wants to run someting else, like `Autoplayer`.
 * [PlayZoot](./PlayZoot): Open Zoot Ticket and call `PlayZoot [number_of_tickets_to_use]`. Default for `number_of_tickets_to_use` is 100.
 * [Craft](./Craft): To craft Tier 1 Rare Part Boxes from Rare Parts call `Craft [number_of_boxes_to_craft]`. Default for `number_of_boxes_to_craft` is 10. This is dangerous tool. Keep your best parts either broken or equipped if you don't want to destroy them by crafting.

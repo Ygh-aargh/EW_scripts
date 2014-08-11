@@ -15,6 +15,8 @@ CLOSE_COORDS="1010 640"
 
 sleep 3
 ( time for i in $( seq 1 $MAX ) ; do
+	xdotool mousemove --sync $XY click 1 # Use
+	xdotool sleep $( awk 'BEGIN {t=1.5-0.1*'$SD'; if (t<0) t=0; printf("%.1f", t)}' )
 	if [ $SD -gt 0 ] ; then
 		xdotool click --repeat $SD 4 # scroll up/reset. For i > 1 it is only just in case
 		xdotool sleep 0.2
@@ -23,11 +25,7 @@ sleep 3
 	fi
 	xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
 	xdotool sleep 0.1
-	xdotool mousemove --sync $XY click 1 # Use
-	xdotool sleep $( awk 'BEGIN {t=1.5-0.1*'$SD'; if (t<0) t=0; printf("%.1f", t)}' )
 done
-sleep 1
-xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
 ) 2>&1  | sed 's/m/ /' | awk '/real/ {t=60*$2+$3; print "time elapsed: "t", "t/'$MAX'" seconds/item"}'
 
 #time: about number_of_items*(1.85+0.1*number_of_scrolldowns)

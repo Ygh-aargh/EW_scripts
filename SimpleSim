@@ -51,6 +51,7 @@ Sim () {
 	KillOos
 	KillLvl
 	Replay
+	KillOos # Warning: this requires Def Sim X2
 }
 
 if [ $# -ge 1 ] ; then

@@ -224,6 +224,9 @@ CloseSim () {
 	xdotool mousemove --sync 1174 260 click 1 # Close "No time to wait"
 	sleep 1
 	xdotool mousemove --sync 1190 190 click 1 # Close sim
+	sleep 1
+	xdotool mousemove --sync 1185 361 click 1 # Close Defense Simulator info just in case
+	sleep 1
 }
 
 Sim2Map2Sim () {

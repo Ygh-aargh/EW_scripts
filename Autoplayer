@@ -269,11 +269,46 @@ Sim_15_n2 () {
 	fi
 }
 
+Invasion () {
+	xdotool mousemove --sync 712 801 click 1 # Invasion Simulator
+	sleep 1
+	xdotool click 1 # Simulations
+	sleep 1
+	for i in 1 2 3 ; do
+		xdotool mousemove --sync 980 568 click 1 # Paragon
+		sleep 2
+		xdotool mousemove --sync 1105 878 click 1 # Fight
+		j=0
+		NUM=$( printf %03d $(( $( \ls -1tr "isim/isim_00_"[0-9][0-9][0-9].png | sed 's/isim\/isim_00_0*\(.*\)\.png/\1/' | tail -n 1 ) + 1 )) )
+		for i in $( seq 8 ) ; do # Wait 8 minutes, move mouse from time to time
+			sleep 30
+			xdotool mousemove --sync 100 100
+			j=$(( $j + 1 ))
+			N=$( printf %02d $j )
+			import -window $WID -crop 1705x798+0+108 "isim/isim_"${N}"_"${NUM}".png"
+			sleep 30
+			j=$(( $j + 1 ))
+			N=$( printf %02d $j )
+			xdotool mousemove --sync 1000 500
+			import -window $WID -crop 1705x798+0+108 "isim/isim_"${N}"_"${NUM}".png"
+		done
+		xdotool mousemove --sync 844 213 click 1 # End battle
+		sleep 5
+		import -window $WID -crop 1705x798+0+108 "isim/isim_00_"${NUM}".png"
+		xdotool mousemove --sync 1154 777 click 1 # Continue
+		sleep 20
+		xdotool mousemove --sync 1174 259 click 1 # # kill "No time to wait"
+		sleep 1
+	done
+	xdotool mousemove --sync 1191 166 click 1 # Close the simulator
+	echo "Invasion finished: "$( date )
+}
+
 if [ $# -ge 1 ] ; then
 	MAX=$( awk 'BEGIN {print 1*'$1'}' )
 	[ $MAX -le 0 ] && MAX=100
 else
-	MAX=200
+	MAX=500
 fi
 
 CRAFT5=1
@@ -290,7 +325,9 @@ TIME_A1=12
 echo "UPGRADE_PART="$UPGRADE_PART" MAP_UPGRADE="$MAP_UPGRADE" CRAFT5="$CRAFT5
 
 sleep 3
-xdotool mousemove --sync 1220 170 click 1 # move pointer to a safe position
+xdotool mousemove --sync  1805 213 click 1 # move pointer to a safe position
+WID=$( xwininfo | grep Window\ id | awk '{print $4}' & sleep 1 && xdotool click 1 ) # get Window ID of the browser
+
 echo "Start cycle: "`date`
 for c in $( seq 1 $MAX ) ; do
 

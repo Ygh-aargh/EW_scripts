@@ -8,7 +8,7 @@ KillLvl () {
 
 #close out of sync
 KillOos () {
-	xdotool mousemove --sync 1040 460 click 1
+	xdotool mousemove --sync 1040 456 click 1
 	sleep 1
 }
 

@@ -11,17 +11,22 @@ else
 fi
 
 CLOSE_COORDS="1010 640"
+SLEEP=0.2
 [ $( basename $0 ) == "Unpack_NoLevelUp" ] && CLOSE_COORDS="1139 754"
+[ $( basename $0 ) == "Unpack_XP_Boost" ] && CLOSE_COORDS="782 550" && SLEEP=2
 
 sleep 3
 ( time for i in $( seq 1 $MAX ) ; do
 	if [ $SD -gt 0 ] ; then
 		xdotool click --repeat $SD 4 # scroll up/reset. For i > 1 it is only just in case
+		sleep 0.2
 		xdotool click --repeat $SD 5 # scroll down
+		sleep 0.2
 	fi
 	xdotool mousemove --sync $XY click 1 # Use
 	sleep 2
 	xdotool mousemove --sync $CLOSE_COORDS click 1 # Kill Level / Done
+	sleep $SLEEP
 done ) 2>&1  | sed 's/m/ /' | awk '/real/ {t=60*$2+$3; print "time elapsed: "t", "t/'$MAX'" seconds/item"}'
 
 #time: about number_of_items*(2+0.2*(number_of_scrolldowns-1))

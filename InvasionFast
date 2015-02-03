@@ -1,0 +1,56 @@
+#!/bin/bash
+
+sleep 3
+
+WID=$( xwininfo | grep Window\ id | awk '{print $4}' & sleep 1 && xdotool click 1 ) # get Window ID of the browser
+
+for j in `seq 20` ; do
+	echo "Cycle: "$j
+	xdotool mousemove 1512 706 click 1 # Zoom out
+	sleep 1
+	xdotool mousemove 1538 730 click 1 # Zoom in
+	sleep 1
+	xdotool mousemove 694 756 click 1 # Invasion Simulator
+	sleep 1
+	xdotool mousemove 700 825 click 1 # Deconstruct
+	sleep 1
+	xdotool mousemove 1100 700 click 1 # Destroy # watch for space for resources
+	sleep 9
+	xdotool mousemove 1650 370 click 1 # Build
+	sleep 1
+	xdotool mousemove 850 360 click 1 # Combat tab
+	sleep 1
+	xdotool mousemove 1085 660 click 1 # Invasion Simulator
+	sleep 1
+	xdotool mousemove 1100 700 click 1 # Build
+	sleep 1
+	xdotool mousemove 679 826 click 1 # place it
+	sleep 1
+	xdotool mousemove --sync 1678 369 click 1 # Speed Up
+	sleep 1
+	xdotool mousemove --sync 1124 402 click 1 # 2.5h (best fit)
+	sleep 2
+	xdotool mousemove --sync 1096 641 click 1 # Done (level up)
+	sleep 1
+	xdotool mousemove 694 756 click 1 # Invasion Simulator
+	sleep 1
+	xdotool click 1 # Simulations
+	sleep 3
+	for i in 1 2 3 ; do
+		xdotool mousemove 980 568 click 1 # Paragon
+		sleep 2
+		xdotool mousemove 1105 878 click 1 # Fight
+		sleep 90
+		xdotool mousemove 844 213 click 1 # End battle
+		sleep 1
+		xdotool click 1 # End battle
+		NUM=$( printf %03d $(( $( \ls -1tr "isim/isim_"[0-9][0-9][0-9].png | sed 's/isim\/isim_0*\(.*\)\.png/\1/' | tail -n 1 ) + 1 )) )
+		sleep 5
+		import -window $WID -crop 1705x798+0+108 "isim/isim_"${NUM}".png"
+		xdotool mousemove 1154 777 click 1 # Continue
+		sleep 10
+		date
+	done
+	xdotool mousemove 1191 166 click 1 # Close
+	sleep 1
+done

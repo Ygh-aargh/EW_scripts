@@ -117,9 +117,9 @@ SwitchBase () {
 
 Res_and_MapUpgrade () {
 	# Collect Res
-	xdotool mousemove --sync 1029 844 click 1 # Gas Refinery
+	xdotool mousemove --sync 1015 735 click 1 # Reactor
 	sleep 1
-	xdotool mousemove --sync 1038 800 click 1 # Collect All
+	xdotool click 1 # Collect All
 	sleep 1
 	[ $MAP_UPGRADE == 0 ] && return
 	# Convert EU to CG

@@ -10,6 +10,6 @@ sleep 3
 for i in $( seq 1 $1 ) ; do
 	xdotool mousemove --sync 980 555 click 1 # Use Key
 	sleep 7
-	xdotool mousemove --sync 829 672 click 1 # Use (Try Again)
+	xdotool mousemove --sync 829 660 click 1 # Use (Try Again)
 	sleep 2
 done

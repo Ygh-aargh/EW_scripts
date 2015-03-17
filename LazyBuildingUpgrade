@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sleep 2
+XY=$( xdotool getmouselocation 2>&1 | sed 's/:/ /g' | awk '/window/ {print $2, $4}' )
+xdotool click 1
+sleep .5
+xdotool mousemove_relative --sync 0 30 click 1 # Upgrade menu
+sleep .5
+xdotool mousemove --sync 1090 701 click 1 # Upgrade button
+sleep 3
+xdotool mousemove --sync 1682 377 click 1 # >>
+sleep 1
+xdotool mousemove --sync 1147 409 click 1 # suggested accel
+sleep 2
+xdotool mousemove --sync 1059 633 click 1 # kill level up
+sleep 1
+xdotool mousemove --sync $XY

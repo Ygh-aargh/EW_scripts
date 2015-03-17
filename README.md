@@ -30,6 +30,7 @@ Included tools:
 * [Click](./Click): call `Click how_many_clicks delay_in_seconds` to send several clicks in a single point.
 * [LazyBuildingUpgrade](./LazyBuildingUpgrade): upgrade a building uder mouse cursor few times using accels suggested by te game.
 * [SpecterFlood](./SpecterFlood): train Specters in A1 with 100% time reduction and regenerate resources using mines.
+* [Overload](./Overload): flood game with clicks in hope to exploit multiclick bugs.
 
 To Do:
 * Move layout-dependent coordinates to a kind of config file, so multiple scripts can use them (e.g. Engineering Lab position in [Craft](./Craft) and [Autoplayer](./Autoplayer)).

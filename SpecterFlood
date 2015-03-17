@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Collect 29M of each res
+Collect () {
+    xdotool mousemove --sync 1327 890 click 1 # Shop
+    sleep 1.5
+    xdotool mousemove --sync 728 290 click 1 # My items
+    sleep 3
+    xdotool mousemove --sync 559 498 click 1 # General
+    sleep 2
+    xdotool mousemove --sync 1095 798 click 1 # 1 Sentinel
+    sleep 2.5
+    xdotool mousemove --sync 1008 636 click 1 # Kill level
+    sleep 1.5
+    xdotool mousemove --sync 1202 227 click 1 # Close store
+    sleep 1
+    xdotool mousemove --sync 1249 616 click 1 # select mine
+    sleep 1
+    xdotool click 1 # Collect
+    sleep 1
+}
+
+Refill () {
+    echo "Refill - "$( date )
+    for i in $( seq $( echo $(( 9 * 7 + 2 )) | awk '{ a=(2*408./$1) ; if (a == int(a)) print int(a); else print int(a)+1;}' ) ) ; do
+	Collect
+	echo -n " "$i
+    done
+    echo " Refill + "$( date )
+}
+
+SpecterBunch () {
+    xdotool mousemove --sync 1575 545 click 1 # Barracks queue
+    sleep 1
+    xdotool mousemove --sync 871 339 click 1 # Specters
+    sleep 1
+    xdotool mousemove --sync 1080 606 click 1 # Max (96000)
+    sleep 1
+    xdotool mousemove --sync 1091 680 click 1 # Train
+    sleep 1
+    xdotool click 1 # Second train
+    sleep 1
+    xdotool mousemove --sync 1187 226 click 1 # Close barracks
+    sleep 1
+}
+
+Convert () {
+    if [ $# -ne 1 ] ; then
+	echo "need to know offset"
+	exit -1
+    fi
+    xdotool mousemove --sync 722 329 click 1 # Resource converter
+    sleep 1
+    xdotool click 1 # Convert resources
+    sleep 1
+    xdotool mousemove --sync $1 429 click 1 # Choose which to convert
+    sleep 1
+    xdotool mousemove --sync 989 512 click 1 # Uranium
+    sleep 1
+    xdotool mousemove --sync 1003 586 click 1 # Max
+    sleep 0.5
+    xdotool click 1 # Second Max just in case
+    sleep 1
+    xdotool mousemove --sync 985 719 click 1 # Convert
+    sleep 1
+    xdotool mousemove --sync 1044 282 click 1 # Close
+    sleep 1
+}
+
+Train () {
+    SpecterBunch
+    Convert 910
+    SpecterBunch
+    Convert 820
+    SpecterBunch
+    Convert 730
+    SpecterBunch
+}
+
+NCYC=0
+[ $# -ge 1 ] && NCYC=$1
+
+sleep 3
+if [ $NCYC -gt 0 ] ; then
+    date
+    for j in $( seq $NCYC ) ; do
+	Train # 8 full loads of Specters
+	Refill # 841 M res
+	echo "Cycle " $j $( date )
+    done
+else
+    Refill # 841 M res
+fi
+

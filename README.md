@@ -29,6 +29,7 @@ Included tools:
 * [DecryptBoxes](./DecryptBoxes): Open an Encrypted Box, then call `DecryptBoxes number_of_remaining_boxes_to_decrypt`. May occasionally skip one turn due to irregulatities of the game.
 * [Click](./Click): call `Click how_many_clicks delay_in_seconds` to send several clicks in a single point.
 * [LazyBuildingUpgrade](./LazyBuildingUpgrade): upgrade a building uder mouse cursor few times using accels suggested by te game.
+* [SpecterFlood](./SpecterFlood): train Specters in A1 with 100% time reduction and regenerate resources using mines.
 
 To Do:
 * Move layout-dependent coordinates to a kind of config file, so multiple scripts can use them (e.g. Engineering Lab position in [Craft](./Craft) and [Autoplayer](./Autoplayer)).

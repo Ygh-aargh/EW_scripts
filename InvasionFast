@@ -15,7 +15,7 @@ for j in `seq 20` ; do
 	xdotool mousemove 700 825 click 1 # Deconstruct
 	sleep 1
 	xdotool mousemove 1100 700 click 1 # Destroy # watch for space for resources
-	sleep 9
+	sleep 10
 	xdotool mousemove 1650 370 click 1 # Build
 	sleep 1
 	xdotool mousemove 850 360 click 1 # Combat tab
@@ -25,13 +25,13 @@ for j in `seq 20` ; do
 	xdotool mousemove 1100 700 click 1 # Build
 	sleep 1
 	xdotool mousemove 679 826 click 1 # place it
-	sleep 1
-	xdotool mousemove --sync 1678 369 click 1 # Speed Up
-	sleep 1
-	xdotool mousemove --sync 1124 402 click 1 # 2.5h (best fit)
 	sleep 2
+	xdotool mousemove --sync 1678 369 click 1 # Speed Up
+	sleep 2
+	xdotool mousemove --sync 1124 402 click 1 # 2.5h (best fit)
+	sleep 3
 	xdotool mousemove --sync 1096 641 click 1 # Done (level up)
-	sleep 1
+	sleep 2
 	xdotool mousemove 694 756 click 1 # Invasion Simulator
 	sleep 1
 	xdotool click 1 # Simulations

@@ -196,7 +196,7 @@ Send_Res () {
 }
 
 SelectSimA1 () {
-	SelectSim 497 681
+	SelectSim 550 620
 }
 
 SelectSimHQ () {

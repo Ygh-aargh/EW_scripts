@@ -22,7 +22,7 @@ Collect () {
 
 Refill () {
     echo "Refill - "$( date )
-    for i in $( seq $( echo $(( 9 * 7 + 2 * 2 + 1 )) | awk '{ a=(2*408./$1) ; if (a == int(a)) print int(a); else print int(a)+1;}' ) ) ; do
+    for i in $( seq $( echo $(( 3 * 7 + 6 * 9 )) | awk '{ a=(2*408./$1) ; if (a == int(a)) print int(a); else print int(a)+1;}' ) ) ; do
 	Collect
 	echo -n " "$i
     done
